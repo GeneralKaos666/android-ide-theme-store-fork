@@ -1,11 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.compose.compiler)
-    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.kotlin)
+    //id("kotlin-parcelize")
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
     kotlin("kapt")
-//    kotlin("jvm")
-    kotlin("plugin.serialization")
+    id("com.google.dagger.hilt.android")
+//    kotlin("jvm") version "2.0.20" apply false
 }
 
 android {

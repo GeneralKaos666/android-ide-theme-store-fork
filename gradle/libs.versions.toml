@@ -1,21 +1,25 @@
 [versions]
-agp = "8.8.2"
+agp = "8.7.2"
+kotlin = "2.0.21"
+hiltVersion = "2.52"
 
-coil = "2.7.0"
+#agp = "8.8.2"
+#kotlin = "2.0.20"
+#hiltVersion = "2.56.1"
 
-hiltAndroid = "2.51.1"
-hiltAndroidCompiler = "2.51.1"
+kspVersion = "2.0.20-1.0.24"
+
+#hiltAndroid = "2.56.1"
+#hiltAndroidPlugin = "2.56.1"
+#hiltAndroidCompiler = "2.56.1"
 hiltNavigationCompose = "1.2.0"
 
-kotlin = "2.0.20"
 coreKtx = "1.13.1"
-junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
 
 #kotlinxSerializationJson = "1.7.1"
 kotlinx-coroutines = "1.10.1"
 kotlinx-serialization-json = "1.7.3"
+
 material-icons-extended = "1.7.6"
 
 lifecycleRuntimeKtx = "2.8.6"
@@ -23,8 +27,15 @@ activityCompose = "1.9.2"
 composeBom = "2024.09.02"
 lifecycleViewmodelCompose = "2.8.6"
 navigationCompose = "2.8.1"
+
 okhttp = "4.12.0"
 okhttp-coroutines = "5.0.0-alpha.14"
+
+coil = "2.7.0"
+
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,10 +45,16 @@ androidx-navigation-compose = { module = "androidx.navigation:navigation-compose
 androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "navigationCompose" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 coil-svg = { module = "io.coil-kt:coil-svg", version.ref = "coil" }
-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
-hilt-android-testing = { module = "com.google.dagger:hilt-android-testing" }
-hilt-compiler = { module = "com.google.dagger:hilt-compiler" }
+
+#hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+#hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
+#hilt-compiler = { module = "com.google.dagger:hilt-compiler" }
+
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion"}
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hiltVersion" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hiltVersion"}
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hiltVersion" }
+
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -66,7 +83,52 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+#hilt-android-gradle-plugin = { id = "com.google.dagger:hilt-android-gradle-plugin:", version.ref = "hiltAndroidPlugin" }
+kotlinAndroidKsp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
 
-#android-application = { id = "com.android.application", version.ref = "agp" }
-#jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-#compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+dependencies {
+
+    val composeBom = platform("androidx.compose:compose-bom:2025.02.00")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    // Choose one of the following:
+    // Material Design 3
+    implementation("androidx.compose.material3:material3")
+    // or Material Design 2
+    implementation("androidx.compose.material:material")
+    // or skip Material Design and build directly on top of foundational components
+    implementation("androidx.compose.foundation:foundation")
+    // or only import the main APIs for the underlying toolkit systems,
+    // such as input and measurement/layout
+    implementation("androidx.compose.ui:ui")
+
+    // Android Studio Preview support
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+
+    // UI Tests
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Optional - Included automatically by material, only add when you need
+    // the icons but not the material library (e.g. when using Material3 or a
+    // custom design system based on Foundation)
+    implementation("androidx.compose.material:material-icons-core")
+    // Optional - Add full set of material icons
+    implementation("androidx.compose.material:material-icons-extended")
+    // Optional - Add window size utils
+    implementation("androidx.compose.material3.adaptive:adaptive")
+
+    // Optional - Integration with activities
+    implementation("androidx.activity:activity-compose:1.10.0")
+    // Optional - Integration with ViewModels
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
+    // Optional - Integration with LiveData
+    implementation("androidx.compose.runtime:runtime-livedata")
+    // Optional - Integration with RxJava
+    implementation("androidx.compose.runtime:runtime-rxjava2")
+
+}

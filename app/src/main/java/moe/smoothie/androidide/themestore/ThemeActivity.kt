@@ -36,14 +36,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.OkHttpClient
+import javax.inject.Inject
+
 import moe.smoothie.androidide.themestore.ui.ThemeActivityTopBar
 import moe.smoothie.androidide.themestore.ui.ThemeDescription
 import moe.smoothie.androidide.themestore.ui.theme.AndroidIDEThemesTheme
 import moe.smoothie.androidide.themestore.util.getSerializableExtraApiDependent
 import moe.smoothie.androidide.themestore.viewmodels.ThemeActivityViewModel
-import okhttp3.OkHttpClient
-import javax.inject.Inject
 
 enum class StoreType(
     @StringRes val storeName: Int,

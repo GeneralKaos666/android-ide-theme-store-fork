@@ -14,7 +14,7 @@ plugins {
 
 android {
     namespace = "moe.smoothie.androidide.themestore"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "moe.smoothie.androidide.themestore"

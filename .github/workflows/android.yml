@@ -12,6 +12,11 @@ jobs:
       with:
         submodules: 'recursive'
 
+    - name: Cancel previous runs
+      uses: styfle/cancel-workflow-action@0.12.1
+      with:
+        access_token: ${{ github.token }}
+          
     - name: Setup JDK 17
       uses: actions/setup-java@v4
       with:
@@ -22,6 +27,9 @@ jobs:
     - name: Setup Ninja
       uses: lukka/get-cmake@latest
 
+    - name: Give permission to executable
+      run: chmod +x gradlew
+        
     - name: Build with Gradle
       run: ./gradlew assembleDebug
 

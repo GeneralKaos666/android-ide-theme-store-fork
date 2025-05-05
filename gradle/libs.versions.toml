@@ -40,6 +40,8 @@ junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 
+version-catalog-update = "0.8.5"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
@@ -91,3 +93,4 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 #hilt-android-gradle-plugin = { id = "com.google.dagger:hilt-android-gradle-plugin:", version.ref = "hiltAndroidPlugin" }
 kotlinAndroidKsp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
 hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
+version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "version-catalog-update" }

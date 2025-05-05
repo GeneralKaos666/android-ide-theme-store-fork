@@ -1,26 +1,26 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-      "github>DanySK/renovate-config"
+  "extends": [
+    "github>DanySK/renovate-config"
   ],
   "automerge": true,
-  "includeForks": true,
-  "labels": ["dependencies"],
+  "forkProcessing": "enabled",
+  "labels": [
+    "dependencies"
+  ],
   "osvVulnerabilityAlerts": true,
   "packageRules": [
     {
       "groupName": "Kotlin & KSP",
-      "matchPackagePrefixes": [
-        "com.google.devtools.ksp"
-      ],
-      "matchPackagePatterns": [
-        "org.jetbrains.kotlin.*"
+      "matchPackageNames": [
+        "com.google.devtools.ksp{/,}**",
+        "/org.jetbrains.kotlin.*/"
       ]
     },
     {
       "groupName": "AndroidX Navigation",
-      "matchPackagePatterns": [
-        "androidx.navigation.*"
+      "matchPackageNames": [
+        "/androidx.navigation.*/"
       ]
     },
     {
@@ -50,7 +50,9 @@
     },
     {
       "description": "Updates to to the site should have type docs",
-      "matchPaths": ["site/*"],
+      "matchFileNames": [
+        "site/*"
+      ],
       "semanticCommitType": "docs"
     }
   ],

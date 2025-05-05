@@ -15,6 +15,6 @@ plugins {
     alias(libs.plugins.version.catalog.update) apply false
 }
 
-apply(rootProject.layout.buildDirectory.file("../buildscripts/toml-updater-config.gradle"))
+//apply(rootProject.layout.buildDirectory.file("../buildscripts/toml-updater-config.gradle"))
 
-//apply("${project.rootDir}/buildscripts/toml-updater-config.gradle")
+apply("${project.rootDir}/buildscripts/toml-updater-config.gradle")

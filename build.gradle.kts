@@ -1,4 +1,7 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+import org.gradle.api.Project
+import org.gradle.api.file.RegularFile
+import org.gradle.api.provider.Provider
+
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin) apply false
@@ -12,4 +15,6 @@ plugins {
     alias(libs.plugins.version.catalog.update) apply false
 }
 
-apply("${project.rootDir}/buildscripts/toml-updater-config.gradle")
+apply(rootProject.layout.buildDirectory.file("buildscripts/toml-updater-config.gradle"))
+
+//apply("${project.rootDir}/buildscripts/toml-updater-config.gradle")

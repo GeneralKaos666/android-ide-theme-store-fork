@@ -6,8 +6,10 @@ plugins {
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     //kotlin("kapt") version "2.0.20" apply false
-
     alias(libs.plugins.hiltAndroid) apply false
     alias(libs.plugins.kotlinAndroidKsp) apply false
 //    kotlin("jvm") version "2.0.20" apply false
+    alias(libs.plugins.version.catalog.update) apply false
 }
+
+apply("${project.rootDir}/buildscripts/toml-updater-config.gradle")

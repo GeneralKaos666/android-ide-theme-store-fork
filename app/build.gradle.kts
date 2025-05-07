@@ -8,8 +8,9 @@ plugins {
 //    id("com.google.dagger.hilt.android")
 //    kotlin("jvm")
 //    alias(libs.plugins.hilt.android.gradle.plugin)
-    alias(libs.plugins.kotlinAndroidKsp)
-    alias(libs.plugins.hiltAndroid)
+    alias(libs.plugins.kapt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt.android) // fun https://github.com/google/dagger/issues/3068
 }
 
 android {

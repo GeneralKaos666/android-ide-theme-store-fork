@@ -1,16 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin)
-    //id("kotlin-parcelize")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
-//    kotlin("kapt")
-//    id("com.google.dagger.hilt.android")
-//    kotlin("jvm")
-//    alias(libs.plugins.hilt.android.gradle.plugin)
     alias(libs.plugins.kapt)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.hilt.android) // fun https://github.com/google/dagger/issues/3068
+    alias(libs.plugins.hilt.android)
 }
 
 android {

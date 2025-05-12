@@ -39,7 +39,7 @@ dependencyResolutionManagement {
 }
 */
 
-rootProject.name = "AndroidIDE Themes"
+rootProject.name = "AndroidIDE-Themes"
 include(":app")
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
